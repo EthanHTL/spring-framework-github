@@ -1,0 +1,45 @@
+
+description = "Spring Debug"
+
+apply plugin: "kotlin"
+apply plugin: "groovy"
+
+
+
+dependencies {
+	/* << 核心组件 >> */
+	//  核心模块 依赖注入IOC和DI的最基本实现
+	api(project(":spring-core"))
+	//  Bean工厂与装配
+	api(project(":spring-beans"))
+	//  上下文，即IOC容器
+	api(project(":spring-context"))
+
+
+	//    《切面编程》
+	//  面向切面编程，CGLIB,JDKProxy
+	api(project(":spring-aop"))
+	//  集成AspectJ，Aop应用框架
+	api(project(":spring-aspects"))
+	//  动态Class Loading模块
+	// api(project(":spring-instrument"))
+
+
+	//    《数据访问与集成》
+	//  提供JDBC主要实现模块，用于简化JDBC操作
+	api(project(":spring-jdbc"))
+
+	api(project(":spring-tx"))
+	//  主要集成Hibernate,jpa,jdo等
+
+
+
+
+	// mysql
+	optional('mysql:mysql-connector-java:8.0.29')
+	optional('com.alibaba:druid:1.2.9')
+
+	// optional("org.aspectj:aspectjweaver")
+
+
+}
